@@ -1,8 +1,9 @@
-from node:20
+FROM node:20
 WORKDIR /opt/server
 COPY package.json .
-COPY *.js .
+COPY server.js .
 RUN npm install
 ENV MONGO="true" \
-    MONGO_URL= "mongodb://mongodb:27017/catalogue"
-CMD ["node", "server.js"]
+    REDIS_URL='redis://redis:6379' \
+    MONGO_URL="mongodb://mongodb:27017/users" 
+CMD ["node", "server"]
