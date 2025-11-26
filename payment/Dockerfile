@@ -1,9 +1,9 @@
 From python:3.9
 WORKDIR /opt/server
 EXPOSE 8080
+COPY payment.ini .
 COPY *.py .
 COPY requirements.txt .
-COPY payment.ini .
 RUN pip3 install -r requirements.txt
 ENV CART_HOST="cart" \
     CART_PORT="8080"  \
@@ -11,6 +11,5 @@ ENV CART_HOST="cart" \
     USER_PORT="8080"  \
     AMQP_HOST="rabbitmq" \
     AMQP_USER="roboshop" \
-    AMQP_PASS="roboshop123" \
+    AMQP_PASS="roboshop123" 
 CMD ["uwsgi","--ini","payment.ini"]
-
