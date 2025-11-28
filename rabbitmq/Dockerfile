@@ -1,3 +1,0 @@
-FROM rabbitmq:3
-RUN docker run -d --name rabbitmq --network roboshop -e RABBITMQ_DEFAULT_USER=roboshop -e RABBITMQ_DEFAULT_PASS=roboshop123 rabbitmq:3
-CMD ["sleep", "1000"]
