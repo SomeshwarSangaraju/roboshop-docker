@@ -10,7 +10,7 @@
 # WORKDIR /opt/server
 # EXPOSE 8080
 # RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
-# COPY --chown=roboshop:roboshop pom.xml . src ./src .
+# COPY --from=build --chown=roboshop:roboshop /opt/server/shipping.jar .
 # LABEL com.project="roboshop" \
 #       createdby="someshwar" \
 #       component="shipping" 
