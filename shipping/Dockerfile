@@ -13,7 +13,7 @@
 # COPY --chown=roboshop:roboshop pom.xml . src ./src .
 # LABEL com.project="roboshop" \
 #       createdby="someshwar" \
-#       component="payment" 
+#       component="shipping" 
 # ENV CART_ENDPOINT="cart:8080" \
 #     DB_HOST="mysql"
 
