@@ -3,7 +3,7 @@ services:
     image: someshwarsangaraju/mongodb:v1
     container_name: mongodb
     volumes:
-    - mongodb: /data/db
+    - mongodb:/data/db
   catalogue:
     image: someshwarsangaraju/catalogue:v1
     container_name: catalogue
@@ -13,7 +13,7 @@ services:
     image: someshwarsangaraju/redis:7
     container_name: redis
     volumes:
-    - redis: /data
+    - redis:/data
   rabbitmq:
     image: someshwarsangaraju/rabbitmq:3
     container_name: rabbitmq
@@ -21,12 +21,12 @@ services:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123
     volumes:
-    - rabbitmq: /var/lib/rabbitmq
+    - rabbitmq:/var/lib/rabbitmq
   mysql:
     image: someshwarsangaraju/mysql:v1
     container_name: mysql
     volumes:
-    - mysql: /var/lib/mysql
+    - mysql:/var/lib/mysql
   user:
     image: someshwarsangaraju/user:v1
     container_name: user
@@ -69,9 +69,9 @@ networks:
     name: roboshop
     external: false
 volumes:
- mongodb:
- mysql:
- redis:
- rabbitmq:
+  mongodb:
+  mysql:
+  redis:
+  rabbitmq:
 
 
