@@ -1,11 +1,11 @@
 services:
   mongodb:
-    image: someshwarsangaraju/mongodb:v1
+    image: mongodb:v1
     container_name: mongodb
     volumes:
     - mongodb:/data/db
   catalogue:
-    image: someshwarsangaraju/catalogue:v1
+    image: catalogue:v1
     container_name: catalogue
     depends_on: 
     - mongodb
@@ -23,37 +23,37 @@ services:
     volumes:
     - rabbitmq:/var/lib/rabbitmq
   mysql:
-    image: someshwarsangaraju/mysql:v1
+    image: mysql:v1
     container_name: mysql
     volumes:
     - mysql:/var/lib/mysql
   user:
-    image: someshwarsangaraju/user:v1
+    image: user:v1
     container_name: user
     depends_on: 
     - mongodb
     - redis
   cart:
-    image: someshwarsangaraju/cart:v1
+    image: cart:v1
     container_name: cart
     depends_on: 
     - redis
     - catalogue
   shipping:
-    image: someshwarsangaraju/shipping:v1
+    image: shipping:v1
     container_name: shipping
     depends_on: 
     - mysql
     - cart
   payment:
-    image: someshwarsangaraju/payment:v1
+    image: payment:v1
     container_name: payment
     depends_on: 
     - rabbitmq
     - user
     - cart
   frontend:
-    image: someshwarsangaraju/frontend:v1
+    image: frontend:v1
     container_name: frontend
     ports:
     - "80:80"
