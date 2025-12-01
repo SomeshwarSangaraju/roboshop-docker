@@ -6,7 +6,7 @@ services:
     volumes:
     - mongodb:/data/db
   catalogue:
-    image: someshwarsangaraju/catalogue:20
+    image: someshwarsangaraju/catalogue:v1
     container_name: catalogue
     build:
       context: ./catalogue
@@ -27,44 +27,44 @@ services:
     volumes:
     - rabbitmq:/var/lib/rabbitmq
   mysql:
-    image: someshwarsangaraju/mysql:8
+    image: someshwarsangaraju/mysql:v1
     container_name: mysql
     build: ./mysql
     volumes:
     - mysql:/var/lib/mysql
   user:
-    image: someshwarsangaraju/user:20
-    container_name: user
     build: ./user
+    image: someshwarsangaraju/user:v1
+    container_name: user
     depends_on: 
     - mongodb
     - redis
   cart:
-    image: someshwarsangaraju/cart:20
-    container_name: cart
     build: ./cart
+    image: someshwarsangaraju/cart:v1
+    container_name: cart
     depends_on: 
     - redis
     - catalogue
   shipping:
-    image: someshwarsangaraju/shipping:3
-    container_name: shipping
     build: ./shipping
+    image: someshwarsangaraju/shipping:v1
+    container_name: shipping
     depends_on: 
     - mysql
     - cart
   payment:
-    image: someshwarsangaraju/payment:v3
-    container_name: payment
     build: ./payment
+    image: someshwarsangaraju/payment:v1
+    container_name: payment
     depends_on: 
     - rabbitmq
     - user
     - cart
   frontend:
-    image: someshwarsangaraju/frontend:24
-    container_name: frontend
     build: ./frontend
+    image: someshwarsangaraju/frontend:v1
+    container_name: frontend
     ports:
     - "80:80"
     depends_on: 
@@ -83,5 +83,3 @@ volumes:
   mysql:
   redis:
   rabbitmq:
-
-
