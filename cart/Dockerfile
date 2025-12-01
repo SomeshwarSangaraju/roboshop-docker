@@ -12,7 +12,7 @@ RUN addgroup -S roboshop && adduser -S roboshop -G roboshop && \
     chown -R roboshop:roboshop /opt/server
 LABEL com.project="roboshop" \
       createdby="someshwar" \
-      component= "cart"     
+      component="cart"     
 ENV REDIS_HOST="redis" \
     CATALOGUE_HOST="catalogue" \
     CATALOGUE_PORT="8080"
