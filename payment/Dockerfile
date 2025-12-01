@@ -1,4 +1,4 @@
-FROM python:3.9.25-alpine3.22 AS builder
+FROM python:3.9.25-alpine3.21 AS builder
 WORKDIR /opt/server
 RUN apk add --no-cache \
     build-base \
@@ -7,7 +7,7 @@ RUN apk add --no-cache \
 COPY requirements.txt .
 RUN pip3 install --prefix=/install -r requirements.txt
 
-FROM python:3.9.25-alpine3.22
+FROM python:3.9.25-alpine3.21
 WORKDIR /opt/server
 EXPOSE 8080
 RUN apk add --no-cache pcre
