@@ -7,7 +7,6 @@ RUN apk add --no-cache \
 COPY requirements.txt .
 RUN pip3 install --prefix=/install -r requirements.txt
 
-
 FROM python:3.9.25-alpine3.22
 WORKDIR /opt/server
 EXPOSE 8080
@@ -28,13 +27,8 @@ ENV CART_HOST="cart" \
     AMQP_HOST="rabbitmq" \
     AMQP_USER="roboshop" \
     AMQP_PASS="roboshop123" 
-
 USER roboshop
 CMD ["uwsgi", "--ini", "payment.ini"]
-
-
-
-
 
 # FROM python:3.9
 # WORKDIR /opt/server
